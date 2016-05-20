@@ -5,28 +5,26 @@
 #include <vector>
 #include <array>
 
-class Situation
-{
-  public:
-    Situation(std::string id);
-    ~Situation();
+class Situation {
+public:
+	Situation(std::string id);
+	~Situation();
 
-  private:
-    std::string _id;
-    int _nbGagne;
-    int _nbPerdu;
+private:
+	std::string _id;
+	int _nbGagne;
+	int _nbPerdu;
 
-  public:
-    void setId(std::string id);
-    void setNbGagne(int nbGagne);
-    void setNbPerdu(int nbPerdu);
-    void initialise();
-    int score();
+public:
+	void setId(std::string id);
+	void setNbGagne(int nbGagne);
+	void setNbPerdu(int nbPerdu);
+	void initialise();
+	int score();
 
-    std::string getId()
-    {
-      return _id;
-    }
+	std::string getId() {
+		return _id;
+	}
 
 };
 

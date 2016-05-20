@@ -11,17 +11,16 @@
 #include "Situation.h"
 #include <map>
 
-class Base
-{
-  public:
-    Base();
-    ~Base();
+class Base {
+public:
+	Base();
+	~Base();
 
-  private:
-    std::map<std::string, Situation*> _situationMap;
+private:
+	std::map<std::string, Situation*> _situationMap;
 
-  public:
-    void getSituation(std::string id, Situation* adS);
+public:
+	void getSituation(std::string id, Situation* adS);
 
 };
 

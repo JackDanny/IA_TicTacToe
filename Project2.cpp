@@ -16,104 +16,91 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
 
-  cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
-  Base bSituation;
+	Base bSituation;
 
-  //pointeur sur une situation
+	//pointeur sur une situation
 
-  //Situation* s = new Situation("000000000");
+	//Situation* s = new Situation("000000000");
 
-  //bSituation.getSituation(0, s);
+	//bSituation.getSituation(0, s);
 
-  //std::string id = "012210012";
+	//std::string id = "012210012";
 
+	//std::vector<std::string> vCoups = g.calculeCoupsPossible('1');
 
+	Situation* s = new Situation("0000000001");
 
+	Grille g("0000000001");
+	//boucle
 
+	char premierJoueur = '1';
 
-  //std::vector<std::string> vCoups = g.calculeCoupsPossible('1');
+	char jActu;
 
-  Situation* s = new Situation("0000000001");
+	std::string id;
 
-  Grille g("0000000001");
-  //boucle
+	while (true) {
 
-  char premierJoueur = '1';
+		id = "0000000000";
 
-  char jActu;
+		g.setId(id);
 
-  std::string id;
+		jActu = premierJoueur;
 
-  while (true)
-  {
+		while (g.joueurGagnant() == '0') {
 
+			if (jActu == '1') {
 
-    id = "0000000000";
+				s = g.meilleurCoup(jActu, bSituation);
 
-    g.setId(id);
+				id = s->getId();
 
-    jActu = premierJoueur;
+				afficheGrille(id);
 
-    while (g.joueurGagnant() == '0')
-    {
+				g.setId(s->getId());
 
-      if (jActu == '1')
-      {
+				std::cout << "coup : " << id << std::endl;
 
-        s = g.meilleurCoup(jActu, bSituation);
+				jActu = '2';
+			} else {
+				std::string coup;
 
-        id = s->getId();
+				std::cout << "quel coup jouer?" << std::endl;
 
-        afficheGrille(id);
+				std::cin >> coup;
 
-        g.setId(s->getId());
+				std::cout << coup << std::endl;
 
-        std::cout << "coup : " << id << std::endl;
+				s = g.joueCoup(coup, jActu, bSituation);
 
-        jActu = '2';
-      }
-      else
-      {
-        std::string coup;
+				id = s->getId();
 
-        std::cout << "quel coup jouer?" << std::endl;
+				afficheGrille(id);
 
-        std::cin >> coup;
+				g.setId(id);
 
-        std::cout << coup << std::endl;
+				std::cout << "coup : " << id << std::endl;
 
-        s = g.joueCoup(coup, jActu, bSituation);
+				jActu = '1';
+			}
 
-        id = s->getId();
+			//stockage dans coupsJoues
+		}
 
-        afficheGrille(id);
+		std::cout << "le joueur " << g.joueurGagnant() << " a gagne!"
+				<< std::endl;
 
-        g.setId(id);
+		if (premierJoueur == '1') {
+			premierJoueur = '2';
+		} else {
+			premierJoueur = '1';
+		}
 
-        std::cout << "coup : " << id << std::endl;
-
-        jActu = '1';
-      }
-
-      //stockage dans coupsJoues
-    }
-
-    std::cout << "le joueur " << g.joueurGagnant() << " a gagne!" << std::endl;
-
-    if (premierJoueur == '1')
-    {
-      premierJoueur = '2';
-    }
-    else
-    {
-      premierJoueur = '1';
-    }
-
-  }
+	}
 //  char res = g.getCase(0, 0);
 //  res = g.getCase(0, 1);
 //  res = g.getCase(0, 2);
@@ -124,5 +111,5 @@ int main()
 //  res = g.getCase(2, 1);
 //  res = g.getCase(2, 2);
 
-  return 0;
+	return 0;
 }

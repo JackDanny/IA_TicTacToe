@@ -6,19 +6,31 @@
 // Description : Hello World in C++, Ansi-style
 //============================================================================
 
-#include <iostream>
-#include <memory>
-
+#include "Test/BaseTest.h"
 #include "Situation.h"
 #include "Base.h"
 #include "Grille.h"
 #include "FonctionStandard.h"
+
+#include <cppunit/TestSuite.h>
+#include <cppunit/ui/text/TestRunner.h>
+#include <iostream>
+#include <memory>
 
 using namespace std;
 
 int main() {
 
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
+
+	cout << "hey!" << endl;
+
+	CppUnit::TextUi::TestRunner runner;
+	runner.addTest(new BaseTest());
+
+	runner.run();
+
+
 
 	Base bSituation;
 

@@ -7,7 +7,10 @@
 
 class Situation {
 public:
-	Situation(std::string id);
+	Situation() {
+	}
+	;
+	Situation(std::string id); //TODO utile??
 	~Situation();
 
 private:

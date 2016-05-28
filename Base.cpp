@@ -1,7 +1,11 @@
 #include "Base.h"
 #include "Situation.h"
 
-void Base::getSituation(std::string id, Situation* adS) {
+std::map<std::string, Situation*> Base::situationMap(void) {
+	return _situationMap;
+}
+
+void Base::getSituation(const std::string& id, Situation* adS) {
 
 	std::map<std::string, Situation*>::iterator it;
 

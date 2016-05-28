@@ -20,7 +20,8 @@ private:
 	std::map<std::string, Situation*> _situationMap;
 
 public:
-	void getSituation(std::string id, Situation* adS);
+	void getSituation(const std::string& id, Situation* adS);
+	std::map<std::string, Situation*> situationMap(void);
 
 };
 

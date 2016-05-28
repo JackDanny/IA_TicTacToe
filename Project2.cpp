@@ -1,11 +1,3 @@
-//============================================================================
-// Name        : Project2.cpp
-// Author      : 
-// Version     :
-// Copyright   : Your copyright notice
-// Description : Hello World in C++, Ansi-style
-//============================================================================
-
 #include "Test/BaseTest.h"
 #include "Situation.h"
 #include "Base.h"
@@ -13,25 +5,49 @@
 #include "FonctionStandard.h"
 
 #include <cppunit/TestSuite.h>
+#include <cppunit/TestResult.h>
 #include <cppunit/ui/text/TestRunner.h>
+#include <cppunit/extensions/TestFactoryRegistry.h>
 #include <iostream>
 #include <memory>
 
 using namespace std;
 
-int main() {
+int main(int argc, char* argv[]) {
 
 	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
 
-	cout << "hey!" << endl;
+	cout << "hey!ho" << endl;
 
-	CppUnit::TextUi::TestRunner runner;
-	runner.addTest(new BaseTest());
+	//CppUnit::TextUi::TestRunner runner;
+	//runner.addTest(new BaseTest());
 
-	runner.run();
+	//runner.run();
 
+//	CppUnit::TextUi::TestRunner runner;
+//	runner.addTest(BaseTest::suite());
+//	runner.run();
+	int a = 2;
 
+	const std::string& sTest = "-t";
 
+	cout << "argv[1]: " << argv[1] << endl;
+
+	if (sTest.compare(argv[1]) == 0) {
+
+		cout << "debug 1" << endl;
+
+		CPPUNIT_NS::TextUi::TestRunner runner;   //the runner
+		// Get the top level suite from the registry
+		CPPUNIT_NS::Test* suite =
+				CPPUNIT_NS::TestFactoryRegistry::getRegistry().makeTest();
+		// Adds the test to the list of test to run
+		runner.addTest(suite);
+		// Run the test.
+		bool wasSucessful = runner.run();
+		// Return error code 1 if the one of test failed.
+		return wasSucessful ? 0 : 1;
+	}
 	Base bSituation;
 
 	//pointeur sur une situation

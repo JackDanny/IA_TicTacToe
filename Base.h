@@ -17,11 +17,13 @@ public:
 	~Base();
 
 private:
-	std::map<std::string, Situation*> _situationMap;
+	std::map<std::string, Situation> _situationMap;
 
 public:
-	void getSituation(const std::string& id, Situation* adS);
-	std::map<std::string, Situation*> situationMap(void);
+	void getSituation(const std::string& id,std::map<std::string, Situation>::iterator& it);
+	Situation& getSituation2(const std::string& id);
+
+	std::map<std::string, Situation> situationMap(void);
 
 };
 

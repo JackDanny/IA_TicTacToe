@@ -8,7 +8,7 @@ class BaseTest: public CPPUNIT_NS::TestFixture {
 	CPPUNIT_TEST_SUITE (BaseTest);
 	CPPUNIT_TEST (testConstructor);
 	CPPUNIT_TEST (testGetSituation);
-
+	CPPUNIT_TEST (testGetSituation2);
 	CPPUNIT_TEST_SUITE_END()
 	;
 
@@ -18,6 +18,7 @@ class BaseTest: public CPPUNIT_NS::TestFixture {
 public:
 	void testConstructor();
 	void testGetSituation();
+	void testGetSituation2();
 
 };
 

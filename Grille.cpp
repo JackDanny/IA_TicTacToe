@@ -92,7 +92,7 @@ Situation* Grille::meilleurCoup(char joueur, Base & bdd) {
 
 	for (std::vector<std::string>::iterator it = vCoups.begin();
 			it != vCoups.end(); it++) {
-		bdd.getSituation(*it, pS);
+		//bdd.getSituation(*it, *pS);
 
 		if (pS->score() > score) {
 			*pBestSituation = *pS;
@@ -136,7 +136,7 @@ Situation* Grille::joueCoup(std::string position, char joueur, Base& bdd) {
 
 	Situation* pS = new Situation(sCoup);
 
-	bdd.getSituation(sCoup, pS);
+	//bdd.getSituation(sCoup, *pS);
 
 	return pS;
 
